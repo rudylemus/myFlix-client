@@ -6,7 +6,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -27,6 +27,11 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
+
+  componentWillUnmount(){
+    // code executed just before the moment the component gets removed from the DOM.
+
+    }
 
   setSelectedMovie(movie) {
     this.setState({
