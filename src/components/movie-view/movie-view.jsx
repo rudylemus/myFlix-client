@@ -1,4 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Button, Row, Col, Container } from 'react-bootstrap';
+
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
     keypressCallback(event){
@@ -28,10 +32,39 @@ export class MovieView extends React.Component {
           <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
-            <button onClick={() => { onBackClick(null); }}>Back</button>
+        <div className="movie-director">
+          <span className="label">Director: </span>
+          <span className="value">
+            {movie.Director.Name + " ~ " + movie.Director.Bio}
+          </span>
+        </div>
+        <div className="movie-genre">
+          <span className="label">Genre: </span>
+          <span className="value">
+            {movie.Genre.Name + " ~ " + movie.Genre.Description}
+          </span>
+        </div>
+            <button className="mt-4" onClick={() => { onBackClick(null); }}>Back</button>
        </div>
     );
   }
 }
+
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birth: PropTypes.string.isRequired,
+    }),
+    ImagePath: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default MovieView;
