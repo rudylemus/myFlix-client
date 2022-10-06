@@ -25,9 +25,12 @@
     "react-router-dom": "^6.4.1"
   },
   "devDependencies": {
+<<<<<<< Updated upstream
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.5",
+=======
+>>>>>>> Stashed changes
     "sass": "^1.55.0"
   }
 }
